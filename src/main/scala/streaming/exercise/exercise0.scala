@@ -14,5 +14,5 @@ class exercise0 {
    val count = words.count()
    count.print()
    ssc.start()
-   ssc5.stop(false)
+   ssc.stop(false)
 }
