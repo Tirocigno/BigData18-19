@@ -34,4 +34,8 @@ object CaseStudyMain {
 
   val germanyPopulationDF = sqlContext.createDataFrame(populationRowRDD, germanySchema)
 
+  val filteredAttributesDF = attributesDF.filter("flag = 'Keep'")
+  filteredAttributesDF.registerTempTable("OnlyKeepCRM_POS_ATTRIBUTES")
+
+
 }
