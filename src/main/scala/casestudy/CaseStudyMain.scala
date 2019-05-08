@@ -37,5 +37,13 @@ object CaseStudyMain {
   val filteredAttributesDF = attributesDF.filter("flag = 'Keep'")
   filteredAttributesDF.registerTempTable("OnlyKeepCRM_POS_ATTRIBUTES")
 
+  /* Join Between GermanyPoulation and ZipCodes in order to be able to group by provincie*/
+
+  val joinedGeographyAndPPE = germanyPopulationDF.join(ppeDF, ppeDF("zipcode") === germanyPopulationDF("zipcode"))
+
+  val provinciePPEs = joinedGeographyAndPPE.groupBy("")
+
+
+
 
 }
