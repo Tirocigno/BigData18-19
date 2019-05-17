@@ -1,5 +1,6 @@
 package casestudy.cloud
 
+
 import org.apache.spark.SparkContext
 import org.apache.spark.sql.{DataFrame, SQLContext}
 
@@ -29,6 +30,7 @@ class CaseStudyCloud {
 
   // Create a dataframe from Hive Table
   val ppeDF = sqlContext.sql("select * from geomarketing.ppe")
+  ppeDF.registerTempTable("ppe")
 
   //Load geography Germany from Text file, infering the schema
 
