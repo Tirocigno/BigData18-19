@@ -15,10 +15,10 @@ class CaseStudyCloud {
       .saveAsTable("geomarketing."+ dfName)
   }
 
-  val posAttrDF = sqlContext.sql("select * from geomarketing.pos_attributes")
+  var posAttrDF = sqlContext.sql("select * from geomarketing.pos_attributes")
   posAttrDF.registerTempTable("pos_attr")
   // we can consider at the beginning just the ones to "Keep"
-  val posAttrDF = sqlContext.sql("select * from pos_attr where flag = 'Keep' ")
+  posAttrDF = sqlContext.sql("select * from pos_attr where flag = 'Keep' ")
   posAttrDF.registerTempTable("pos_attr")
 
   val posPotDF = sqlContext.sql("select * from geomarketing.pos_potential")
